@@ -2,17 +2,20 @@ package main
 
 import (
 	"bytes"
-	"github.com/stretchr/testify/require"
 	"io"
 	"strings"
 	"testing"
 	"testing/iotest"
 	"time"
+
+	"github.com/stretchr/testify/require"
 )
 
 func Test_runLoop(t *testing.T) {
 	t.Parallel()
+	// Simulate exit signal by sending a string "exit\n" through a Reader.
 	exitCmd := strings.NewReader("exit\n")
+
 	type args struct {
 		r io.Reader
 	}
@@ -27,6 +30,8 @@ func Test_runLoop(t *testing.T) {
 			args: args{
 				r: exitCmd,
 			},
+			// Modify the expected output according to your specific logic.
+			wantW: "exiting gracefully...",
 		},
 		{
 			name: "read error should have no effect",
@@ -35,7 +40,9 @@ func Test_runLoop(t *testing.T) {
 			},
 			wantErrW: "EOF",
 		},
+		// Add other test cases as needed.
 	}
+
 	for _, tt := range tests {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
@@ -49,7 +56,7 @@ func Test_runLoop(t *testing.T) {
 			time.Sleep(10 * time.Millisecond)
 			exit <- struct{}{}
 
-			require.NotEmpty(t, w.String())
+			require.Equal(t, tt.wantW, w.String())
 			if tt.wantErrW != "" {
 				require.Contains(t, errW.String(), tt.wantErrW)
 			} else {
