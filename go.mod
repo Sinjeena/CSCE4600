@@ -1,4 +1,4 @@
-module github.com/Sinjeena/CSCE4600
+module github.com/Sinjeena/Csce4600/Project2
 
 go 1.19
 
