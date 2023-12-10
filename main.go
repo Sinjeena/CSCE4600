@@ -45,21 +45,16 @@ func runLoop(r io.Reader, w, errW io.Writer, exit chan struct{}) {
 }
 
 func printPrompt(w io.Writer) error {
-	// Get current user.
-	// Don't prematurely memoize this because it might change due to `su`?
 	u, err := user.Current()
 	if err != nil {
 		return err
 	}
-	// Get current working directory.
-	wd, err := os.Getwd()
-	if err != nil {
-		return err
-	}
 
-	// /home/User [Username] $
-	_, err = fmt.Fprintf(w, "%v [%v] $ ", wd, u.Username)
+	// Get the username without brackets.
+	username := u.Username
 
+	// Print the prompt with the current username.
+	_, err = fmt.Fprintf(w, "[%v] $ ", username)
 	return err
 }
 
