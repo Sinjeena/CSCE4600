@@ -85,12 +85,26 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	case "pwd":
 		builtins.PwdCommand()
 	case "mkdir":
-		builtins.MkdirCommand(args)
+		if len(args) < 1 {
+			fmt.Println("Directory name not provided.")
+			// Handle the case where directory name is missing
+			return nil
+		}
+		builtins.MkdirCommand(args[0])
 	case "rmdir":
-		builtins.RmdirCommand(args)
+		if len(args) < 1 {
+			fmt.Println("Directory name not provided.")
+			// Handle the case where directory name is missing
+			return nil
+		}
+		builtins.RmdirCommand(args[0]) // Pass the first argument as directory name
 	case "touch":
-		builtins.TouchCommand(args)
-		return nil
+		if len(args) < 1 {
+			fmt.Println("File name not provided.")
+			// Handle the case where file name is missing
+			return nil
+		}
+		builtins.TouchCommand(args[0])
 	}
 
 	return executeCommand(name, args...)
