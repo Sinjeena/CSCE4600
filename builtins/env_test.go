@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 	"testing"
+	"github.com/Sinjeena/Csce4600/Project2/builtins"
 )
 
 func TestEnvironmentVariables(t *testing.T) {
