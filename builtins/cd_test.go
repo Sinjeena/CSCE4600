@@ -2,9 +2,10 @@ package builtins_test
 
 import (
 	"errors"
-	"github.com/Sinjeena/Csce4600/Project2/builtins"
 	"os"
 	"testing"
+
+	"github.com/Sinjeena/CSCE4600/builtins"
 )
 
 func TestChangeDirectory(t *testing.T) {

@@ -5,7 +5,6 @@ import (
 	"io"
 	"os"
 	"strings"
-	"github.com/Sinjeena/Csce4600/Project2/builtins"
 )
 
 func EnvironmentVariables(w io.Writer, args ...string) error {

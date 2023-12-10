@@ -9,7 +9,7 @@ import (
 	"os/user"
 	"strings"
 
-	"github.com/Sinjeena/CSCE4600/Project2/builtins"
+	"github.com/Sinjeena/CSCE4600/builtins"
 )
 
 func main() {
@@ -78,18 +78,18 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 		return builtins.ChangeDirectory(args...)
 	case "env":
 		return builtins.EnvironmentVariables(w, args...)
-	case "exit":	
+	case "exit":
 		exit <- struct{}{}
 	case "echo":
-        builtins.EchoCommand(args)
-    case "pwd":
-        builtins.PwdCommand()
-    case "mkdir":
-        builtins.MkdirCommand(args)
-    case "rmdir":
-        builtins.RmdirCommand(args)
-    case "touch":
-        builtins.TouchCommand(args)	
+		builtins.EchoCommand(args)
+	case "pwd":
+		builtins.PwdCommand()
+	case "mkdir":
+		builtins.MkdirCommand(args)
+	case "rmdir":
+		builtins.RmdirCommand(args)
+	case "touch":
+		builtins.TouchCommand(args)
 		return nil
 	}
 
