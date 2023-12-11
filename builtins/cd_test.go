@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Sinjeena/CSCE4600/builtins"
+	"github.com/Sinjeena/Csce4600/Project2/builtins"
 )
 
 func TestChangeDirectory(t *testing.T) {
