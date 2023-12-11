@@ -9,7 +9,7 @@ import (
 	"os/user"
 	"strings"
 
-	"github.com/Sinjeena/CSCE4600/builtins"
+	"github.com/Sinjeena/CSCE4600/Project2/builtins"
 )
 
 func main() {
@@ -71,40 +71,38 @@ func handleInput(w io.Writer, input string, exit chan<- struct{}) error {
 	args := strings.Split(input, " ")
 	name, args := args[0], args[1:]
 
+	for k, v := range builtins.ReturnAliasMap() {
+		if k == name {
+			oldargs := args
+			args = nil
+			//args = make([]string, len(v))
+			name = v[0]
+			args = append(v[1:], oldargs...)
+		}
+	}
+
+	pwd, err := os.Getwd()
+
 	// Check for built-in commands.
 	// New builtin commands should be added here. Eventually this should be refactored to its own func.
 	switch name {
+	case "alias":
+		return builtins.HandleAlias(w, args...)
+	case "unalias":
+		return builtins.Unalias(w, args...)
+	case "echo":
+		return builtins.Echo(w, args...)
+	case "pwd":
+		return builtins.Pwd(pwd, err, w, args...)
+	case "kill":
+		return builtins.HandleKill(w, args...)
 	case "cd":
 		return builtins.ChangeDirectory(args...)
 	case "env":
 		return builtins.EnvironmentVariables(w, args...)
 	case "exit":
 		exit <- struct{}{}
-	case "echo":
-		builtins.EchoCommand(args)
-	case "pwd":
-		builtins.PwdCommand()
-	case "mkdir":
-		if len(args) < 1 {
-			fmt.Println("Directory name not provided.")
-			// Handle the case where directory name is missing
-			return nil
-		}
-		builtins.MkdirCommand(args[0])
-	case "rmdir":
-		if len(args) < 1 {
-			fmt.Println("Directory name not provided.")
-			// Handle the case where directory name is missing
-			return nil
-		}
-		builtins.RmdirCommand(args[0]) // Pass the first argument as directory name
-	case "touch":
-		if len(args) < 1 {
-			fmt.Println("File name not provided.")
-			// Handle the case where file name is missing
-			return nil
-		}
-		builtins.TouchCommand(args[0])
+		return nil
 	}
 
 	return executeCommand(name, args...)
