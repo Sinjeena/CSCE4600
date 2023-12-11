@@ -1,10 +1,8 @@
-package builtins
+package builtins_test
 
 import (
-	"errors"
-	"os"
-	"testing"
-	"github.com/Sinjeena/Csce4600/builtins"
+    "testing"
+    "github.com/Sinjeena/Csce4600/builtins"
 	
 )
 
