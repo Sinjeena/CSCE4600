@@ -6,11 +6,10 @@ import (
 )
 
 // MkdirCommand represents the 'mkdir' command implementation
-func MkdirCommand(directory string) {
+func MkdirCommand(directory string) error {
 	err := os.Mkdir(directory, 0755) // 0755 is the default permission for mkdir
 	if err != nil {
-		fmt.Println("Error:", err)
-		return
+		return fmt.Errorf("error creating directory: %v", err)
 	}
-	fmt.Println("Directory", directory, "created successfully")
+	return nil
 }
