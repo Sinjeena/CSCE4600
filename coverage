@@ -1,19 +1,19 @@
 mode: count
 github.com/Sinjeena/CSCE4600/main.go:15.13,18.2 2 0
 github.com/Sinjeena/CSCE4600/main.go:20.66,26.6 2 2
-github.com/Sinjeena/CSCE4600/main.go:26.6,27.10 1 1020
+github.com/Sinjeena/CSCE4600/main.go:26.6,27.10 1 2078
 github.com/Sinjeena/CSCE4600/main.go:28.15,30.10 2 1
-github.com/Sinjeena/CSCE4600/main.go:31.11,32.41 1 1019
+github.com/Sinjeena/CSCE4600/main.go:31.11,32.41 1 2077
 github.com/Sinjeena/CSCE4600/main.go:32.41,34.13 2 0
-github.com/Sinjeena/CSCE4600/main.go:36.4,36.58 1 1019
-github.com/Sinjeena/CSCE4600/main.go:36.58,38.13 2 1018
+github.com/Sinjeena/CSCE4600/main.go:36.4,36.58 1 2077
+github.com/Sinjeena/CSCE4600/main.go:36.58,38.13 2 2076
 github.com/Sinjeena/CSCE4600/main.go:40.4,40.53 1 1
 github.com/Sinjeena/CSCE4600/main.go:40.53,42.5 1 0
-github.com/Sinjeena/CSCE4600/main.go:47.37,51.16 2 1019
+github.com/Sinjeena/CSCE4600/main.go:47.37,51.16 2 2077
 github.com/Sinjeena/CSCE4600/main.go:51.16,53.3 1 0
-github.com/Sinjeena/CSCE4600/main.go:55.2,56.16 2 1019
+github.com/Sinjeena/CSCE4600/main.go:55.2,56.16 2 2077
 github.com/Sinjeena/CSCE4600/main.go:56.16,58.3 1 0
-github.com/Sinjeena/CSCE4600/main.go:61.2,63.12 2 1019
+github.com/Sinjeena/CSCE4600/main.go:61.2,63.12 2 2077
 github.com/Sinjeena/CSCE4600/main.go:66.73,76.14 4 1
 github.com/Sinjeena/CSCE4600/main.go:77.12,78.43 1 0
 github.com/Sinjeena/CSCE4600/main.go:79.13,80.51 1 0
